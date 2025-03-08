@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #1a1a2e;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    padding: 20px;
+}
+
+.contact-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: clamp(1rem, 5vw, 2rem);
+    border-radius: 20px;
+    width: min(90%, 600px);
+    transform-style: preserve-3d;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+h1 {
+    color: #00fff5;
+    text-align: center;
+    margin-bottom: clamp(1rem, 4vw, 2rem);
+    font-size: clamp(1.5em, 5vw, 2.5em);
+    text-shadow: 0 0 10px rgba(0, 255, 245, 0.5);
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.form-group {
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    position: relative;
+    transform-style: preserve-3d;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #00fff5;
+    transform: translateZ(20px);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: clamp(0.6rem, 2vw, 0.8rem);
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 255, 245, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00fff5;
+    box-shadow: 0 0 15px rgba(0, 255, 245, 0.3);
+    transform: translateZ(10px);
+}
+
+button {
+    width: 100%;
+    padding: clamp(0.8rem, 2vw, 1rem);
+    background: #00fff5;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    opacity: 0;
+    transform: translateY(20px);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+button:hover {
+    transform: translateY(-5px) translateZ(20px);
+    box-shadow: 0 5px 20px rgba(0, 255, 245, 0.4);
+}
+
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    margin-top: clamp(1rem, 4vw, 2rem);
+    opacity: 0;
+}
+
+.social-link {
+    color: #00fff5;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    transform: scale(0);
+}
+
+.social-link:hover {
+    transform: translateY(-5px) translateZ(20px);
+    text-shadow: 0 0 15px rgba(0, 255, 245, 0.5);
+}
+
+.success-message {
+    display: none;
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 1rem;
+    transform-style: preserve-3d;
+    opacity: 0;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.chat-box {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: min(300px, 90%);
+    height: min(400px, 70vh);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.chat-messages {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chat-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #00fff5;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .contact-container {
+        padding: 1rem;
+    }
+
+    .chat-box {
+        width: 90%;
+        height: 60vh;
+        left: 5%;
+        right: 5%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact-container {
+        max-width: 800px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
